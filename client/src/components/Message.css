@@ -1,0 +1,267 @@
+.message {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message.own {
+  flex-direction: row-reverse;
+}
+
+.message.system-message {
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.message.system-message span {
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.message-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.message-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 70%;
+  position: relative;
+}
+
+.message.own .message-content {
+  align-items: flex-end;
+}
+
+.message-sender {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.message-bubble {
+  background: white;
+  padding: 10px 14px;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  position: relative;
+  word-wrap: break-word;
+}
+
+.message.own .message-bubble {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.message-bubble p {
+  margin: 0 0 8px 0;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.message-bubble p:last-child {
+  margin-bottom: 0;
+}
+
+.file-preview {
+  margin-top: 8px;
+}
+
+.file-image {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.file-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s;
+}
+
+.message.own .file-link {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.file-link:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.message-footer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 4px;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.message-time {
+  font-size: 0.75rem;
+}
+
+.message-status {
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.message.own .message-status {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.message-status.read {
+  color: #4caf50;
+}
+
+.message.own .message-status.read {
+  color: #90ee90;
+}
+
+.message-reactions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.message.own .message-reactions {
+  margin-left: 0;
+  margin-right: 10px;
+  justify-content: flex-end;
+}
+
+.reaction-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.reaction-badge:hover {
+  background: #f5f5f5;
+  transform: scale(1.05);
+}
+
+.reaction-badge.active {
+  background: #e3f2fd;
+  border-color: #667eea;
+}
+
+.message-actions {
+  position: absolute;
+  top: 0;
+  right: -30px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.message.own .message-actions {
+  left: -30px;
+  right: auto;
+}
+
+.message:hover .message-actions {
+  opacity: 1;
+}
+
+.action-btn {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.action-btn:hover {
+  background: #f5f5f5;
+  transform: scale(1.1);
+}
+
+.reactions-picker {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  padding: 5px;
+  display: flex;
+  gap: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.message.own .reactions-picker {
+  left: 0;
+  right: auto;
+}
+
+.reaction-btn {
+  background: transparent;
+  border: none;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.2s;
+  font-size: 1.2rem;
+}
+
+.reaction-btn:hover {
+  background: #f5f5f5;
+}
+
+@media (max-width: 768px) {
+  .message-content {
+    max-width: 85%;
+  }
+
+  .message-actions {
+    opacity: 1;
+  }
+}
+

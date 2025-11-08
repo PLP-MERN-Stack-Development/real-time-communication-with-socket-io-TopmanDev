@@ -1,0 +1,21 @@
+.app {
+  width: 100%;
+  max-width: 1400px;
+  height: 90vh;
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .app {
+    height: 100vh;
+    border-radius: 0;
+    max-width: 100%;
+  }
+}
+
